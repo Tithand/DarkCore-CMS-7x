@@ -1716,6 +1716,12 @@ color: #339900;
      float: right;
      margin-right: 15px;
  }
+ .news-thb-right{
+     width: 90px;
+     text-align: right;
+     float: right;
+     margin-right: 15px;
+ }
  .readmore{
 	border: 1px solid #003333;
     padding: 5px;

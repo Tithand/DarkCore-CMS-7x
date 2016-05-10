@@ -7,6 +7,7 @@
 	require_once 'core/functions/bugtracker.php';
 	require_once 'core/functions/character_functions.php';
 	require_once 'core/functions/global_functions.php';
+	require_once 'core/functions/news_functions.php';
 	require_once 'core/functions/store_functions.php';
 	require_once 'core/functions/realm_functions.php';
 	require_once 'core/functions/vote_functions.php';

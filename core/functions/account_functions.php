@@ -62,10 +62,10 @@ function get_avatar_byid($id){
 	$con->close();
 	}
 
-function get_acc_info_by_user($username){
+function get_acc_info_by_user(){
 	global $DB_HOST,$DB_USERNAME,$DB_PASSWORD,$DB_AUTH;
 	$con = connect($DB_HOST,$DB_USERNAME,$DB_PASSWORD);
-	$sql = "SELECT id, username, email, reg_mail, joindate, last_ip, last_login, online, expansion, vp, dp, rank FROM ".$DB_AUTH.".account WHERE username='".$username."'";
+	$sql = "SELECT id, username, email, reg_mail, joindate, last_ip, last_login, online, expansion, vp, dp, rank FROM ".$DB_AUTH.".account WHERE username='".$_SESSION['usr']."'";
 	$i=1;
 	$account = array();
 	if ($stmt = $con->prepare($sql)){

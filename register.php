@@ -24,10 +24,10 @@
 						<form action="core/do_register.php" method="post" enctype="multipart/form-data">
 							<table>
 								<tr>
-									<td><input class='reg-input' type="text" name="Username" placeholder="Username*" required></td>
+									<td><input class='reg-input' type="text" name="username" placeholder="Username*" required></td>
 								</tr>
 								<tr>
-									<td><input class='reg-input' type="email" name="Email" placeholder="Email*" required></td>
+									<td><input class='reg-input' type="email" name="email" placeholder="Email*" required></td>
 								</tr>
 								<tr>
 									<td><input class='reg-input' type="password" name="Password" autocomplete='off' placeholder="Password*" required></td>

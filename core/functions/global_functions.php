@@ -61,12 +61,12 @@ function check_email_exist($email){
 	$stmt->close();
 	$con->close();
 }
-function register_user($username,$password,$email,$expansion){
+function register_user($username,$password,$email,$expansion,$bnet_accID){
 	global $DB_HOST,$DB_USERNAME,$DB_PASSWORD,$DB_AUTH;
 	$con = connect($DB_HOST,$DB_USERNAME,$DB_PASSWORD);
-	$sql = "INSERT INTO ".$DB_AUTH.".account (username, sha_pass_hash, email, expansion) VALUES (?,?,?,?)";
+	$sql = "INSERT INTO ".$DB_AUTH.".account (username, sha_pass_hash, email, reg_mail, expansion, battlenet_account, battlenet_index) VALUES 
+	('".$username."','".$password."', '".$email."', '".$email."', '".$expansion."',".$bnet_accID.", 1);";
 	if ($stmt = $con->prepare($sql)) {
-		$stmt->bind_param("sssi", $username, $password, $email, $expansion);
 		$stmt->execute();
 		$stmt->close();
 	}
@@ -79,6 +79,21 @@ function register_bnet_user($email,$bnet_password){
 	if ($stmt = $con->prepare($sql)) {
 		$stmt->bind_param("ss", $email, $bnet_password);
 		$stmt->execute();
+		$stmt->close();
+	}
+	$con->close();
+}
+function req_bnetAccountID($email){
+	global $DB_HOST,$DB_USERNAME,$DB_PASSWORD,$DB_AUTH;
+	$con = connect($DB_HOST,$DB_USERNAME,$DB_PASSWORD);
+	$sql = "SELECT id FROM ".$DB_AUTH.".battlenet_accounts WHERE email=?";
+	if ($stmt = $con->prepare($sql)){
+		$stmt->bind_param('s', $email);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		while ($stmt->fetch()) {
+			return $id;
+		}
 		$stmt->close();
 	}
 	$con->close();
@@ -104,8 +119,9 @@ function rewrite_body($text_body){
 $result = str_replace("\n","<br>",$text_body);
 return $result;
 }
+
 function get_news_basic(){
-global $DB_HOST,$DB_USERNAME,$DB_PASSWORD,$DB_WEBSITE;
+	global $DB_HOST,$DB_USERNAME,$DB_PASSWORD,$DB_WEBSITE;
 	$con = connect($DB_HOST,$DB_USERNAME,$DB_PASSWORD);
 	$sql = "SELECT id,autor,body,title,thumbnail,header,date FROM ".$DB_WEBSITE.".news order by id DESC limit 5";
 	$i=1;

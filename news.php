@@ -24,72 +24,33 @@ $user_account = new account;
     <div id="notify">There was an error when logging in recheck your account and password corectly acc and pass are case sensitive</div>
     <?php } ?>
 	<div id='navigate-block'>
-		<a class='navigate-item' href='index'>Home</a>
+		<a class='navigate-item' href='index'>Home</a>-<a class='navigate-item' href='news'>News</a>
 	</div>
 	<div id='content'>
 		<div id='index-content-left'>
-			<div id='main-tools'>
-				<div class='main-tools-box'>
-                    <h1 class="main-tools-head-text"><?php echo $welcomeTitle; ?></h1>
-                    <div class="main-tools-description"><?php echo $welcomeDescription; ?></div>
-                    <ul>
-                        <li class="main-tools-li"><a href="register">REGISTER</a></li>
-                        <li class="main-tools-li"><a href="login">LOGIN</a></li>
-                        <li class="main-tools-li"><a href="guides">GUIDES & DOWNLOADS</a></li>
-                    </ul>
-				</div>
-			</div>
 			<div id='lastnews'>
-				<div class='lastnews-head-text'>LATEST NEWS & ANNOUNCEMENTS</div>
+				<div class='lastnews-head-text'>All News & Announcements</div>
                 <div class="newsdivider"></div>
 				<?php $data_news = new news;
-				$getLastNews = $data_news->get_last_news();
-				for ($i=1;$i<=count($getLastNews);$i++) {?>
+				$getAllNews = $data_news->get_all_news();
+				for ($i=1;$i<=count($getAllNews);$i++) {?>
 					<div class='newsthumb'>
-						<div class='newsthumbicon'><a href="news?id=<?php echo $getLastNews[$i]['id']; ?>"><img src='images/avatars/darksoke.png' alt='<?php echo $getLastNews[$i]['title'];?>' width="100%" height="100%"/></a></div>
+						<div class='newsthumbicon'><a href="#"><img src='images/avatars/darksoke.png' alt='<?php echo $getAllNews[$i]['title'];?>' width="100%" height="100%"/></a></div>
 						<div class='newsthumbbody'>
-							<div class='newsthumbtitle'><?php echo $getLastNews[$i]['title'];?></div>
-							<div class='newsthumbresult'>&emsp;&emsp;<?php echo strip_tags(substr($getLastNews[$i]['body'], 0, 300)); ?>...</div>
+							<div class='newsthumbtitle'><?php echo $getAllNews[$i]['title'];?></div>
+							<div class='newsthumbresult'><?php echo strip_tags(substr($getAllNews[$i]['body'], 0, 300)); ?>...</div>
 							<div class='newsthumbbutton'>
 								<div class='thb-left'>
-									<label style='color:#72BF8B;'>By</label> <label style='font-size:14px !important;color:#9a0000;'><?php echo $getLastNews[$i]['autor'];?></label>
-									<label style='color:#72BF8B;'> in <?php echo substr($getLastNews[$i]['date'],0,10); ?> </label>
+									<label style='color:#72BF8B;'>By </label><label style='font-size:14px !important;color:#9a0000;'><?php echo $getAllNews[$i]['autor'];?></label>
+									<label style='color:#72BF8B;'> in <?php echo substr($getAllNews[$i]['date'],0,10); ?> </label>
 								</div>
-								<div class="news-thb-right"><a href='news' class='lastnews-right-text'>Read all news...</a></div>
+								<div class="news-thb-right"><a href='news?id=<?php echo $getAllNews[$i]['id']; ?>' class='lastnews-right-text'>Read this...</a></div>
 
 							</div>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
-			<div id='mediabox'>
-				<div class='mediabox-head-text'>MEDIA</div>
-                <div class="newsdivider"></div>
-                <iframe id="abc_frame" width="650" height="350" src="https://www.youtube.com/embed/iyQ0dXWmW6o" frameborder="0" allowfullscreen></iframe>
-                <div class="media-line">
-                    <div class="media-thumb" onclick="getvideo('iyQ0dXWmW6o')">
-                        <img src="http://img.youtube.com/vi/iyQ0dXWmW6o/2.jpg" width="50" height="50" />
-                    </div>
-                    <div class="media-thumb" onclick="getvideo('vRYvhY8YzU4')" style="margin-left:10px;">
-                        <img src="http://img.youtube.com/vi/vRYvhY8YzU4/2.jpg" width="50" height="50" />
-                    </div>
-                </div>
-			</div>
-            <div id='secondary-box'>
-                <div class='mediabox-head-text'>SOCIAL MEDIA</div>
-                <div class="newsdivider"></div>
-                <div class="fb-page" data-href="https://www.facebook.com/GamingZeta" data-width="288" data-height="300" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
-                    <div class="fb-xfbml-parse-ignore">
-                        <blockquote cite="https://www.facebook.com/GamingZeta">
-                            <a href="https://www.facebook.com/GamingZeta">GamingZeta</a>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="milestone-line">
-                    Next Milestone: <label style="color:#5BD0B0;">750</label> Likes Reward: <label style="color:#5BD0B0;">3</label> DP <label style="color:#5BD0B0;">300</label> VP<br>
-                    Last Milestone: <label style="color:#5BD0B0;">700</label> Likes Reward: <label style="color:#5BD0B0;">500</label> VP<br>
-                </div>
-            </div>
 		</div>
         <div id='index-content-right'>
             <div class='acclogin-info'>
