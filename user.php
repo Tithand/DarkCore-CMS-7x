@@ -28,7 +28,7 @@
 				</article>
 			</aside>
 			<div class="newsdivider"></div>
-			<?php $account = get_acc_info_by_user($_SESSION['usr']);
+			<?php $account = get_acc_info_by_user();
 			for ($j=1;$j<=count($account);$j++) {?>
 			<div id='user-box'>
 				<div class='lastnews-head-text-nobg' style="text-align:center;margin-bottom:5px;font-size:16px;">BASIC ACCOUNT INFORMATIONS</div>

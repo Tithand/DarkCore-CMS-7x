@@ -418,6 +418,15 @@ margin-bottom: 15px;
 display: inline-block;
 vertical-align: top;
 }
+.guide-box-divider{
+width: 580px;
+height: 1px;
+background: #585858;
+float:left;
+margin-bottom: 15px;
+display: inline-block;
+vertical-align: top;
+}
 .usrinput{
     border: 1px solid #383838;
     width: 240px;
@@ -1413,7 +1422,7 @@ color: #a3620a;font-size: 13px;
 #guide-body{
     margin: auto;
     padding: 15px;
-    width: 940px;
+    width: 600px;
     border: 1px solid #272626;
     background: #171616;
     margin-top: 25px;
@@ -1457,7 +1466,7 @@ color: #a3620a;font-size: 13px;
 #guide-main-description{display: inline-block;
     vertical-align: top;
     padding: 15px;
-    width: 920px;
+    width: 580px;
     margin-top: 4px;
     color: #b0b0b0;
     font-size: 14px;

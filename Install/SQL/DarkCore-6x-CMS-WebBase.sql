@@ -11,7 +11,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Export de la structure de table website. bugtracker
-DROP TABLE IF EXISTS `bugtracker`;
 CREATE TABLE IF NOT EXISTS `bugtracker` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `body` text NOT NULL,
@@ -27,7 +26,6 @@ CREATE TABLE IF NOT EXISTS `bugtracker` (
 
 
 -- Export de la structure de table website. char_titles
-DROP TABLE IF EXISTS `char_titles`;
 CREATE TABLE IF NOT EXISTS `char_titles` (
   `id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL
@@ -37,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `char_titles` (
 
 
 -- Export de la structure de table website. forum_category
-DROP TABLE IF EXISTS `forum_category`;
 CREATE TABLE IF NOT EXISTS `forum_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
@@ -48,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `forum_category` (
 
 
 -- Export de la structure de table website. forum_forums
-DROP TABLE IF EXISTS `forum_forums`;
 CREATE TABLE IF NOT EXISTS `forum_forums` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` int(11) DEFAULT NULL,
@@ -63,7 +59,6 @@ CREATE TABLE IF NOT EXISTS `forum_forums` (
 
 
 -- Export de la structure de table website. forum_topics
-DROP TABLE IF EXISTS `forum_topics`;
 CREATE TABLE IF NOT EXISTS `forum_topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `forum` int(11) NOT NULL DEFAULT '0',
@@ -79,7 +74,6 @@ CREATE TABLE IF NOT EXISTS `forum_topics` (
 
 
 -- Export de la structure de table website. gm_application
-DROP TABLE IF EXISTS `gm_application`;
 CREATE TABLE IF NOT EXISTS `gm_application` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -98,12 +92,12 @@ CREATE TABLE IF NOT EXISTS `gm_application` (
 
 
 -- Export de la structure de table website. guides
-DROP TABLE IF EXISTS `guides`;
 CREATE TABLE IF NOT EXISTS `guides` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
-  `thumb` varchar(255) NOT NULL,
+  `link` text,
+  `link_body` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,7 +105,6 @@ CREATE TABLE IF NOT EXISTS `guides` (
 
 
 -- Export de la structure de table website. item_display
-DROP TABLE IF EXISTS `item_display`;
 CREATE TABLE IF NOT EXISTS `item_display` (
   `displayid` bigint(20) NOT NULL,
   `icon_name` varchar(100) DEFAULT NULL
@@ -121,7 +114,6 @@ CREATE TABLE IF NOT EXISTS `item_display` (
 
 
 -- Export de la structure de table website. news
-DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
@@ -136,7 +128,6 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 
 -- Export de la structure de table website. rules
-DROP TABLE IF EXISTS `rules`;
 CREATE TABLE IF NOT EXISTS `rules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_title` varchar(50) NOT NULL DEFAULT '0',
@@ -149,7 +140,6 @@ CREATE TABLE IF NOT EXISTS `rules` (
 
 
 -- Export de la structure de table website. spell_description
-DROP TABLE IF EXISTS `spell_description`;
 CREATE TABLE IF NOT EXISTS `spell_description` (
   `spellid` int(11) NOT NULL,
   `description` text
@@ -159,7 +149,6 @@ CREATE TABLE IF NOT EXISTS `spell_description` (
 
 
 -- Export de la structure de table website. topic_comments
-DROP TABLE IF EXISTS `topic_comments`;
 CREATE TABLE IF NOT EXISTS `topic_comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
@@ -174,7 +163,6 @@ CREATE TABLE IF NOT EXISTS `topic_comments` (
 
 
 -- Export de la structure de table website. vote_logs
-DROP TABLE IF EXISTS `vote_logs`;
 CREATE TABLE IF NOT EXISTS `vote_logs` (
   `account` int(11) NOT NULL,
   `site` int(11) NOT NULL,
@@ -187,7 +175,6 @@ CREATE TABLE IF NOT EXISTS `vote_logs` (
 
 
 -- Export de la structure de table website. vote_sites
-DROP TABLE IF EXISTS `vote_sites`;
 CREATE TABLE IF NOT EXISTS `vote_sites` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
