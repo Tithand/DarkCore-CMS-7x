@@ -8,15 +8,14 @@
 	</div>
 	<?php include 'menu.php';?>
 	<div id='navigate-block'>
-		<a class='navigate-item' href='index'>Home</a>-<a class='navigate-item' href='characters_tools'>Characters tools</a>
+		<a class='navigate-item' href='index'>Home</a>-<a class='navigate-item' href='user'>My account</a>-<a class='navigate-item' href='characters_tools'>Characters tools</a>
 	</div>
 	<div id='content'>
 		<div id='index-content-left'>
 			<div class='lastnews-head-text'>Characters Tools Panel</div>
 			<div class="newsdivider"></div>
 			<div id="notify2">Characters Tools is not coded ! Developpement in work ...</div>
-			<div id="user-box">
-			</div>
+			<div id="user-box"></div>
 		</div>
 		<div id='index-content-right'>
             <div class='recruit-info'>

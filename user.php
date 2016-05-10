@@ -74,6 +74,10 @@
 				</div>
 			</div>
 			<div id='user-box'>
+				<div class='lastnews-head-text-nobg' style="text-align:center;margin-bottom:5px;font-size:16px;">DONATIONS</div>
+				<p align="center">Work in progress</p>
+			</div>
+			<div id='user-box'>
 				<div class='lastnews-head-text-nobg' style="text-align:center;margin-bottom:5px;font-size:16px;">MY ORDERS</div>
 				<?php $findOrder = get_all_order_store_by_user_id($account[$j]['id']); for($i=1;$i<=count($findOrder);$i++){ 
 				if(!empty($findOrder[$i]['order_id'])){?>
